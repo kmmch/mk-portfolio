@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--=============Google Font ===============-->
+    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic%7CTeko&amp;display=swap" rel="stylesheet">
+    <!--==============レイアウトを制御する独自のCSSを読み込み===============-->
+    <link rel="stylesheet" href="./assets/css/vendor/destyle.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/css/modaal.min.css">
+</head>
+<body>
+    
+
+    <!-- Start ヘッダー -->
+    <header class="header">
+        <!-- タイトル -->
+        <h1 class="header__ttl">
+            <a href="/">Masaya Kemmochi</a>
+        </h1>
+        <!-- ハンバーガーボタン -->
+        <!-- <div class="header__btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div> -->
+        <!-- グロナビ -->
+        <!-- <nav class="header__nav">
+            <div class="header__nav__list">
+                <ul>
+                    <li><a href="/">Top</a></li> 
+                    <li><a href="#about">About</a></li> 
+                    <li><a href="#profile">Profile</a></li> 
+                    <li><a href="#works">Works</a></li> 
+                </ul>
+            </div>
+        </nav> -->
+    </header>
+    <!-- End ヘッダー -->
+
+    <!-- Start メインビジュアル -->
+    <section class="main-visual">
+        <!-- 粒子文字 -->
+        <canvas id="particle"></canvas>
+        <!-- 背景の波線 -->
+        <!-- <canvas id="waveCanvas"></canvas> -->
+    </section>
+    <!-- End メインビジュアル -->
+
+
+    <main id="container">
+        <section id="about" class="section fixed">
+            <div class="section__wrapper">
+                <h2 class="section__ttl smoothTrigger">ABOUT</h2>
+                <div class="txt__wrapper smoothTrigger">
+                    <p>ようこそ、けんもちまさやのポートフォリオサイトへ！</p>
+                    <p>プロフィールや過去の実績をまとめています。</p>
+                    <p>ポートフォリオを通じてぜひ私のことを知ってください。</p>
+                </div>    
+            </div>
+        </section>
+        <section id="profile" class="section fixed">
+            <div class="section__wrapper">
+                <h2 class="section__ttl smoothTrigger">PROFILE</h2>
+                <div class="profile__wrapper smoothTrigger">
+                    <figure class="profile__img">
+                        <img src="./assets/images/profile.png" alt="Profile Image" width=200>
+                    </figure>
+                    <div class="profile__body">
+                        <div class="profile__body__txt">
+                            <p>
+                                都内在住のWebエンジニア。<br>
+                                学生時代に自然言語処理を学び、卒業後はIT企業（SIer）でWeb開発に従事。<br>
+                                設計や開発だけでなく要件定義や運用等プロジェクトマネジメントも経験。<br>
+                                得意領域はCMSを使ったWebサイト構築とデータ収集・解析。
+                            </p>
+                        </div>
+                        <div class="profile__body__sns">
+                            <div class="link__sns twitter">
+                                <a target="_blank" href="https://twitter.com/masayakemmochi">
+                                    <img src="./assets/images/icon/Logo blue.svg" alt="Twitter">
+                                </a>
+                            </div>
+                            <div class="link__sns github">
+                                <a target="_blank" href="https://github.com/kmmch">
+                                    <img src="./assets/images/icon/github-mark-white.svg" alt="GitHub">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                <div class="section__btn smoothTrigger">
+                    <a target="_blank" href="https://www.resume.id/kemmochi_" class="btn rotatefront"><span>プロフィール</span><span>Go to the Page!</span></a>
+                </div>
+            </div>
+        </section>
+        <section id="works" class="section fixed">
+            <div class="section__wrapper">
+                <h2 class="section__ttl smoothTrigger">WORKS</h2>    
+                <p class="section__description  smoothTrigger">これまでに手がけてきた実績をご紹介します。</p>
+                <div class="works__wrapper smoothTrigger">
+                    <ul>
+                        <li class="zoomIn"><a target="_blank" href="https://www.resume.id/works/a00f05541a378317"><span class="mask"><img src="./assets/images/works/mktravel.jpeg" alt="MK Travel"></span></a></li>
+                        <li class="zoomIn"><a target="_blank" href="https://www.resume.id/works/ba68e65c8d5b0423"><span class="mask"><img src="./assets/images/works/clinic.jpeg" alt="Ishii Clinic"></span></a></li>
+                        <li class="zoomIn"><a target="_blank" href="https://www.resume.id/works/36383472ec552e38"><span class="mask"><img src="./assets/images/works/mkcoding.png" alt="MK Coding"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="section fixed">
+            <p>COPYRIGHT © 2023 Masaya Kemmochi ALL RIGHTS RESERVED.</p>
+        </section>
+    </main>
+    <!-- <footer class="footer">
+        <p>COPYRIGHT © 2023 Masaya Kemmochi ALL RIGHTS RESERVED.</p>
+    </footer> -->
+    <script src="./assets/js/vendor/jquery-3.6.3.min.js"></script>
+    <script src="./assets/js/vendor/particleText.js"></script>
+    <script src="./assets/js/vendor/stickyfill.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/module/waveCanvas.js"></script>
+</body>
+</html>

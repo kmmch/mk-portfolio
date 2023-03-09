@@ -318,6 +318,7 @@ p {
 }
 
 .main-visual #particle {
+  width: 100%;
   height: 50vh;
   vertical-align: bottom;
   /*canvasタグ下に余白が生まれるのを防ぐ*/

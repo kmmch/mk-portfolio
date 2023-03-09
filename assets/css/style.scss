@@ -146,8 +146,10 @@ p {
 
     /*== ヘッダータイトル */
     &__ttl {
-        font-size: 2.5rem;
-        font-family: 'Teko', sans-serif;
+        & a{
+            font-size: 2.5rem;
+            font-family: 'Teko', sans-serif;    
+        }
     }
 
     /*== ハンバーガーボタン */

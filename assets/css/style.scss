@@ -87,7 +87,7 @@ p {
 /* 滑らかに変形して出現 */
 .smooth{
 	animation-name:smoothAnime;
-	animation-duration:1s;
+	animation-duration:2s;
 	animation-fill-mode:forwards;
     transform-origin:left;
 	opacity:0;

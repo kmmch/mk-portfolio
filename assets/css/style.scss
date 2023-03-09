@@ -1,7 +1,11 @@
+// 変数定義用スタイルシート宣言
+@use "module/variable" as *;
+
+
 /*========= Start 共通パーツ ===============*/
 /*== テキスト共通設定 */
 * {
-    color: #d5d3d3;
+    color: $main-color;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -9,15 +13,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: $h1-fontSize;
 }
 
 h2 {
-    font-size:3rem;
+    font-size:$h2-fontSize;
 }
 
 p {
-    // letter-spacing: 0.1rem;
     line-height: 1.5;
 }
 
@@ -264,22 +267,25 @@ p {
     width:100%;
     height: 100vh;
     background:hsl(0, 0%, 20%);
-    position: relative;
+}
 
-    // 粒子文字
-    & #particle{
-        width:100%;
-        height: 50vh;
-        vertical-align: bottom;/*canvasタグ下に余白が生まれるのを防ぐ*/
-    }    
+.particle {
+    &__wrapper {
+        width: 90%;
+        max-width:900px;
+        height: 90%;
+        max-height:500px;
+        background:hsl(0, 0%, 20%);
 
-    // 波線
-    & #waveCanvas {
-        position: absolute;
-        bottom: 70;
-        left:0;
-        width: 100%;
-        z-index:1;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        
+        & #particle{
+            width:100%;
+            height: 50vh;
+            vertical-align: bottom;/*canvasタグ下に余白が生まれるのを防ぐ*/
+        }
     }
 }
 /*========= End メインビジュアル ===============*/
@@ -399,25 +405,72 @@ p {
 
 /*＝＝＝＝＝＝＝＝＝＝＝タブレット以下の見え方＝＝＝＝＝＝＝＝＝＝＝＝＝*/
 @media screen and (max-width:768px){
-    section.fixed {
-        position:relative!important;/*sticky解除*/
-        top:0;/*70px⇒0pxに戻す*/
-        min-height: auto;
-        padding:30px;
 
-        &:last-of-type{
+    /*========= Start 共通パーツ ===============*/
+    /*== テキスト共通設定 */
+    p {
+        font-size:13px;
+    }
+    /*========= End 共通パーツ ===============*/
+    
+
+
+    /*========= Start メインコンテンツ ===============*/
+    .section {
+
+        &.fixed {
             position:relative!important;/*sticky解除*/
             top:0;/*70px⇒0pxに戻す*/
             min-height: auto;
             padding:30px;
+        
+            &:last-of-type{
+                position:relative!important;/*sticky解除*/
+                top:0;/*70px⇒0pxに戻す*/
+                min-height: auto;
+                padding:30px;
+            }
+        
+            &:first-of-type{
+                padding:100px 30px 30px 30px;/*最初の要素は上部にHeaderの高さ以上の余白をとる*/
+            }
+        
+            &:nth-of-type(2n){
+                padding:100px 30px;
+            }    
         }
 
-        &:first-of-type{
-            padding:100px 30px 30px 30px;/*最初の要素は上部にHeaderの高さ以上の余白をとる*/
-        }
+        /*== プロフィール */
+        & .profile {
+            &__wrapper {
+                display: block;
+            }
 
-        &:nth-of-type(2n){
-            padding:100px 30px;
+            &__img {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            &__body {
+                &__sns {
+                    justify-content: center;
+                }
+            }
+        }
+        /*== 実績 */
+        & .works {
+            &__wrapper {
+                & ul {
+                    display: block;
+
+                    & li {
+                        width: 90%;
+                        margin: 10px auto;
+                    }
+                }
+            }
         }
     }
+    /*========= Start メインコンテンツ ===============*/
+
 }

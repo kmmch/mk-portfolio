@@ -11,6 +11,7 @@
                 }
   
               var canvas = document.querySelector(target);
+              console.log(canvas);
               var ctx = canvas.getContext("2d");
               var ww = canvas.width = canvas.clientWidth;
               var wh = canvas.height = canvas.clientHeight;

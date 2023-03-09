@@ -36,7 +36,6 @@ p {
   letter-spacing: 0.2rem;
   /*ボタン内側の設定*/
 }
-
 .btn span {
   display: block;
   position: absolute;
@@ -44,165 +43,103 @@ p {
   height: 100%;
   border: 1px solid #333;
   /* 重なりを3Dで表示 */
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
+  transform-style: preserve-3d;
   /* アニメーションの設定 数字が少なくなるほど早く回転 */
-  -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
 .rotatefront span:nth-child(1) {
   background: #fff;
   color: #000;
-  -webkit-transform: rotateX(0deg);
-          transform: rotateX(0deg);
-  /*はじめは回転なし*/
-  -webkit-transform-origin: 0 50%  -25px;
-          transform-origin: 0 50%  -25px;
-  /* 回転する起点 */
+  transform: rotateX(0deg); /*はじめは回転なし*/
+  transform-origin: 0 50% -25px; /* 回転する起点 */
 }
-
 .rotatefront span:nth-child(2) {
   background: #000;
   color: #fff;
-  -webkit-transform: rotateX(90deg);
-          transform: rotateX(90deg);
-  /*はじめはX軸に90度回転*/
-  -webkit-transform-origin: 0 50%  -25px;
-          transform-origin: 0 50%  -25px;
-  /* 回転する起点 */
+  transform: rotateX(90deg); /*はじめはX軸に90度回転*/
+  transform-origin: 0 50% -25px; /* 回転する起点 */
 }
-
 .rotatefront:hover span:nth-child(1) {
-  -webkit-transform: rotateX(-90deg);
-          transform: rotateX(-90deg);
-  /* X軸に-90度回転 */
+  transform: rotateX(-90deg); /* X軸に-90度回転 */
 }
-
 .rotatefront:hover span:nth-child(2) {
-  -webkit-transform: rotateX(0deg);
-          transform: rotateX(0deg);
-  /* X軸に0度回転 */
+  transform: rotateX(0deg); /* X軸に0度回転 */
 }
 
 /*== アニメーション共通設定 */
 /* 滑らかに変形して出現 */
 .smooth {
-  -webkit-animation-name: smoothAnime;
-          animation-name: smoothAnime;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  -webkit-transform-origin: left;
-          transform-origin: left;
+  animation-name: smoothAnime;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  transform-origin: left;
   opacity: 0;
 }
-
 .smoothTrigger {
   opacity: 0;
 }
 
-@-webkit-keyframes smoothAnime {
-  from {
-    -webkit-transform: translate3d(0, 100%, 0) skewY(12deg);
-            transform: translate3d(0, 100%, 0) skewY(12deg);
-    opacity: 0;
-  }
-  to {
-    -webkit-transform: translate3d(0, 0, 0) skewY(0);
-            transform: translate3d(0, 0, 0) skewY(0);
-    opacity: 1;
-  }
-}
-
 @keyframes smoothAnime {
   from {
-    -webkit-transform: translate3d(0, 100%, 0) skewY(12deg);
-            transform: translate3d(0, 100%, 0) skewY(12deg);
+    transform: translate3d(0, 100%, 0) skewY(12deg);
     opacity: 0;
   }
   to {
-    -webkit-transform: translate3d(0, 0, 0) skewY(0);
-            transform: translate3d(0, 0, 0) skewY(0);
+    transform: translate3d(0, 0, 0) skewY(0);
     opacity: 1;
   }
 }
-
 /*　画像の拡大　*/
 .zoomIn img {
-  -webkit-transform: scale(1);
-          transform: scale(1);
-  -webkit-transition: .3s ease-in-out;
-  transition: .3s ease-in-out;
-  /*移り変わる速さを変更したい場合はこの数値を変更*/
+  transform: scale(1);
+  transition: 0.3s ease-in-out; /*移り変わる速さを変更したい場合はこの数値を変更*/
 }
-
 .zoomIn a:hover img {
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
-  /*拡大の値を変更したい場合はこの数値を変更*/
+  transform: scale(1.2); /*拡大の値を変更したい場合はこの数値を変更*/
 }
 
 /*　画像のマスク　*/
 .mask {
   display: block;
-  line-height: 0;
-  /*行の高さを0にする*/
-  overflow: hidden;
-  /*拡大してはみ出る要素を隠す*/
+  line-height: 0; /*行の高さを0にする*/
+  overflow: hidden; /*拡大してはみ出る要素を隠す*/
 }
 
 /*========= End 共通パーツ ===============*/
 /*========= Start ヘッダー ===============*/
 .header {
-  position: fixed;
-  /*fixedを設定して固定*/
+  position: fixed; /*fixedを設定して固定*/
   top: 0;
-  height: 70px;
-  /*高さ指定*/
-  width: 100%;
-  /*横幅指定*/
-  z-index: 999;
-  /*最前面へ*/
+  height: 70px; /*高さ指定*/
+  width: 100%; /*横幅指定*/
+  z-index: 999; /*最前面へ*/
   /*以下はレイアウトのためのCSS*/
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   text-align: center;
   padding: 20px;
   /*== ヘッダータイトル */
   /*== ハンバーガーボタン */
   /*== ハンバーガーメニュー */
 }
-
 .header__ttl {
   font-size: 2.5rem;
-  font-family: 'Teko', sans-serif;
+  font-family: "Teko", sans-serif;
 }
-
 .header__btn {
-  position: -webkit-sticky;
   position: sticky;
-  z-index: 9999;
-  /*ボタンを最前面に*/
+  z-index: 9999; /*ボタンを最前面に*/
   top: 10px;
   right: 10px;
   cursor: pointer;
   width: 50px;
   height: 50px;
 }
-
 .header__btn span {
   display: inline-block;
-  -webkit-transition: all .4s;
-  transition: all .4s;
+  transition: all 0.4s;
   position: absolute;
   left: 14px;
   height: 3px;
@@ -210,39 +147,30 @@ p {
   background-color: #666;
   width: 45%;
 }
-
 .header__btn span:nth-of-type(1) {
   top: 15px;
 }
-
 .header__btn span:nth-of-type(2) {
   top: 23px;
 }
-
 .header__btn span:nth-of-type(3) {
   top: 31px;
 }
-
 .header__btn.active span:nth-of-type(1) {
   top: 18px;
   left: 18px;
-  -webkit-transform: translateY(6px) rotate(-45deg);
-          transform: translateY(6px) rotate(-45deg);
+  transform: translateY(6px) rotate(-45deg);
   width: 30%;
 }
-
 .header__btn.active span:nth-of-type(2) {
   opacity: 0;
 }
-
 .header__btn.active span:nth-of-type(3) {
   top: 30px;
   left: 18px;
-  -webkit-transform: translateY(-6px) rotate(45deg);
-          transform: translateY(-6px) rotate(45deg);
+  transform: translateY(-6px) rotate(45deg);
   width: 30%;
 }
-
 .header__nav {
   /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
   position: fixed;
@@ -251,44 +179,35 @@ p {
   top: 0;
   right: -120%;
   width: 50%;
-  height: 100vh;
-  /*ナビの高さ*/
+  height: 100vh; /*ナビの高さ*/
   background: #999;
   /*動き*/
-  -webkit-transition: all 0.6s;
   transition: all 0.6s;
 }
-
 .header__nav.panelactive {
   right: 0;
 }
-
 .header__nav.panelactive .header__nav__list {
   /*ナビの数が増えた場合縦スクロール*/
   position: fixed;
   z-index: 999;
   width: 50%;
-  height: 100vh;
-  /*表示する高さ*/
+  height: 100vh; /*表示する高さ*/
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
-
 .header__nav ul {
   /*ナビゲーション天地中央揃え*/
   position: absolute;
   z-index: 999;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
-
 .header__nav ul li {
   list-style: none;
   text-align: center;
 }
-
 .header__nav ul li a {
   color: #333;
   text-decoration: none;
@@ -302,144 +221,101 @@ p {
 /*========= End ヘッダー ===============*/
 /*========= Start メインビジュアル ===============*/
 .main-visual {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100vh;
-  background: #333333;
-  position: relative;
+  background: hsl(0, 0%, 20%);
 }
 
-.main-visual #particle {
+.particle__wrapper {
+  width: 90%;
+  max-width: 900px;
+  height: 90%;
+  max-height: 500px;
+  background: hsl(0, 0%, 20%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.particle__wrapper #particle {
   width: 100%;
   height: 50vh;
-  vertical-align: bottom;
-  /*canvasタグ下に余白が生まれるのを防ぐ*/
-}
-
-.main-visual #waveCanvas {
-  position: absolute;
-  bottom: 70;
-  left: 0;
-  width: 100%;
-  z-index: 1;
+  vertical-align: bottom; /*canvasタグ下に余白が生まれるのを防ぐ*/
 }
 
 /*========= End メインビジュアル ===============*/
 /*========= Start メインコンテンツ ===============*/
 .section {
-  background: #333333;
+  background: hsl(0, 0%, 20%);
   /*== 紙芝居風レイアウト */
   /*== プロフィール */
   /*== 実績 */
 }
-
 .section__wrapper {
   max-width: 1000px;
 }
-
 .section__ttl {
   margin-bottom: 20px;
   text-align: center;
   text-transform: uppercase;
   font-size: 3rem;
   letter-spacing: 0.3rem;
-  font-family: 'Teko', sans-serif;
+  font-family: "Teko", sans-serif;
 }
-
 .section__description {
   text-align: center;
   margin-bottom: 20px;
 }
-
 .section__btn {
   text-align: center;
 }
-
 .section .txt__wrapper {
   text-align: center;
 }
-
 .section .link__sns {
   margin-right: 10px;
 }
-
 .section .link__sns img {
   width: 30px;
   height: 30px;
 }
-
-.section.fixed {
-  position: -webkit-sticky;
-  /*Safari*/
+.section.fixed { /*Safari*/
   position: sticky;
-  top: 0px;
-  /*Header高さ分で止まるようにする*/
+  top: 0px; /*Header高さ分で止まるようにする*/
   /*装飾のためのCSS*/
   padding: 0 0 45% 0;
   height: 170vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
-
 .section.fixed:last-of-type {
-  padding: 40% 0  0% 0;
-  /*最後のセクションだけ止まらないため、エリア内の情報が少ない時は、HEADER分の高さをpadding-topに追加して上部が見えるようにする*/
+  padding: 40% 0 0% 0; /*最後のセクションだけ止まらないため、エリア内の情報が少ない時は、HEADER分の高さをpadding-topに追加して上部が見えるようにする*/
 }
-
 .section .profile__wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   margin-bottom: 40px;
 }
-
 .section .profile__body {
   margin-left: 30px;
 }
-
 .section .profile__body__txt {
   margin-bottom: 20px;
 }
-
 .section .profile__body__sns {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 .section .works__wrapper ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
-
 .section .works__wrapper ul li {
   width: 31%;
 }
-
 .section .works__wrapper ul li img {
   width: 100%;
 }
@@ -447,9 +323,8 @@ p {
 /*========= End メインコンテンツ ===============*/
 /*========= Start フッター ===============*/
 .footer {
-  background: #333333;
+  background: hsl(0, 0%, 20%);
 }
-
 .footer p {
   text-align: center;
   letter-spacing: 0.3rem;
@@ -458,28 +333,51 @@ p {
 /*========= End フッター ===============*/
 /*＝＝＝＝＝＝＝＝＝＝＝タブレット以下の見え方＝＝＝＝＝＝＝＝＝＝＝＝＝*/
 @media screen and (max-width: 768px) {
-  section.fixed {
-    position: relative !important;
-    /*sticky解除*/
-    top: 0;
-    /*70px⇒0pxに戻す*/
+  /*========= Start 共通パーツ ===============*/
+  /*== テキスト共通設定 */
+  p {
+    font-size: 13px;
+  }
+  /*========= End 共通パーツ ===============*/
+  /*========= Start メインコンテンツ ===============*/
+  .section {
+    /*== プロフィール */
+    /*== 実績 */
+  }
+  .section.fixed {
+    position: relative !important; /*sticky解除*/
+    top: 0; /*70px⇒0pxに戻す*/
     min-height: auto;
     padding: 30px;
   }
-  section.fixed:last-of-type {
-    position: relative !important;
-    /*sticky解除*/
-    top: 0;
-    /*70px⇒0pxに戻す*/
+  .section.fixed:last-of-type {
+    position: relative !important; /*sticky解除*/
+    top: 0; /*70px⇒0pxに戻す*/
     min-height: auto;
     padding: 30px;
   }
-  section.fixed:first-of-type {
-    padding: 100px 30px 30px 30px;
-    /*最初の要素は上部にHeaderの高さ以上の余白をとる*/
+  .section.fixed:first-of-type {
+    padding: 100px 30px 30px 30px; /*最初の要素は上部にHeaderの高さ以上の余白をとる*/
   }
-  section.fixed:nth-of-type(2n) {
+  .section.fixed:nth-of-type(2n) {
     padding: 100px 30px;
   }
-}
-/*# sourceMappingURL=style.css.map */
+  .section .profile__wrapper {
+    display: block;
+  }
+  .section .profile__img {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .section .profile__body__sns {
+    justify-content: center;
+  }
+  .section .works__wrapper ul {
+    display: block;
+  }
+  .section .works__wrapper ul li {
+    width: 90%;
+    margin: 10px auto;
+  }
+  /*========= Start メインコンテンツ ===============*/
+}/*# sourceMappingURL=style.css.map */

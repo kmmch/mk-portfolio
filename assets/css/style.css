@@ -126,7 +126,7 @@ p {
   /*== ハンバーガーメニュー */
 }
 .header__ttl a {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-family: "Teko", sans-serif;
 }
 .header__btn {
@@ -340,6 +340,11 @@ p {
     font-size: 13px;
   }
   /*========= End 共通パーツ ===============*/
+  /*========= Start ヘッダー ===============*/
+  .header {
+    height: 50px;
+    padding: 5px 20px;
+  }
   /*========= Start メインコンテンツ ===============*/
   .section {
     /*== プロフィール */

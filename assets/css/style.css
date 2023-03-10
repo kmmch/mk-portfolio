@@ -2,7 +2,7 @@
 /*========= Start 共通パーツ ===============*/
 /*== テキスト共通設定 */
 * {
-  color: #d5d3d3;
+  color: #333;
   font-family: "Sawarabi Gothic", sans-serif;
 }
 
@@ -105,6 +105,17 @@ p {
   display: block;
   line-height: 0; /*行の高さを0にする*/
   overflow: hidden; /*拡大してはみ出る要素を隠す*/
+}
+
+/* Loading背景画面設定　*/
+#splash {
+  /*fixedで全面に固定*/
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: #333;
 }
 
 /*========= End 共通パーツ ===============*/
@@ -227,7 +238,6 @@ p {
   align-items: center;
   width: 100%;
   height: 100vh;
-  background: hsl(0, 0%, 20%);
 }
 
 .particle__wrapper {
@@ -235,7 +245,6 @@ p {
   max-width: 900px;
   height: 90%;
   max-height: 500px;
-  background: hsl(0, 0%, 20%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -249,7 +258,7 @@ p {
 /*========= End メインビジュアル ===============*/
 /*========= Start メインコンテンツ ===============*/
 .section {
-  background: hsl(0, 0%, 20%);
+  background: #fff;
   /*== 紙芝居風レイアウト */
   /*== プロフィール */
   /*== 実績 */
@@ -323,12 +332,8 @@ p {
 
 /*========= End メインコンテンツ ===============*/
 /*========= Start フッター ===============*/
-.footer {
-  background: hsl(0, 0%, 20%);
-}
 .footer p {
   text-align: center;
-  letter-spacing: 0.3rem;
 }
 
 /*========= End フッター ===============*/

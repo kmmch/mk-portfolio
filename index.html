@@ -13,6 +13,12 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/css/modaal.min.css">
 </head>
 <body>
+    <!-- Start ローディング -->
+    <div id="splash">
+        <div id="splash_text"></div>
+    </div>
+    <!-- End ローディング -->
+
     <!-- Start ヘッダー -->
     <header class="header">
         <!-- タイトル -->
@@ -75,14 +81,14 @@
                             </p>
                         </div>
                         <div class="profile__body__sns">
-                            <div class="link__sns twitter smoothTrigger">
+                            <div class="link__sns twitter">
                                 <a target="_blank" href="https://twitter.com/masayakemmochi">
-                                    <img src="./assets/images/icon/Logo blue.svg" alt="Twitter">
+                                    <img class="smoothTrigger" src="./assets/images/icon/Logo blue.svg" alt="Twitter">
                                 </a>
                             </div>
-                            <div class="link__sns github smoothTrigger">
+                            <div class="link__sns github">
                                 <a target="_blank" href="https://github.com/kmmch">
-                                    <img src="./assets/images/icon/github-mark-white.svg" alt="GitHub">
+                                    <img class="smoothTrigger" src="./assets/images/icon/github-mark-white.svg" alt="GitHub">
                                 </a>
                             </div>
                         </div>
@@ -110,12 +116,13 @@
             <p>COPYRIGHT © 2023 Masaya Kemmochi ALL RIGHTS RESERVED.</p>
         </section> -->
     </main>
-    <!-- <footer class="footer">
+    <footer class="footer">
         <p>COPYRIGHT © 2023 Masaya Kemmochi ALL RIGHTS RESERVED.</p>
-    </footer> -->
+    </footer>
     <script src="./assets/js/vendor/jquery-3.6.3.min.js"></script>
     <script src="./assets/js/vendor/particleText.js"></script>
     <script src="./assets/js/vendor/stickyfill.min.js"></script>
+    <script src="./assets/js/vendor/progressbar.min.js"></script>
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/module/waveCanvas.js"></script>
 </body>

@@ -16,7 +16,7 @@ function init() {
     colorList = [];
     // canvas1個めの色指定
     canvasList.push(document.getElementById("wave"));
-    colorList.push(['#111', '#111', '#111', '#111', '#111']);//重ねる波線の色設定
+    colorList.push(['#999', '#999', '#999', '#999', '#999']);//重ねる波線の色設定
     
 		// 各キャンバスの初期化
 		for(var canvasIndex in canvasList) {

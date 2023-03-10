@@ -68,9 +68,6 @@ p {
   transform: rotateX(0deg); /* X軸に0度回転 */
 }
 
-.sns a {
-  display: block;
-}
 .sns img {
   width: 30px;
   height: 30px;

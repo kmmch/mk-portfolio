@@ -134,7 +134,7 @@ p {
 .header{
     position: fixed;/*fixedを設定して固定*/
     top: 0;
-    height: 70px;/*高さ指定*/
+    height: $header-height;/*高さ指定*/
     width:100%;/*横幅指定*/
     z-index: 999;/*最前面へ*/
     /*以下はレイアウトのためのCSS*/
@@ -346,7 +346,7 @@ p {
         align-items: center;
 
         &:last-of-type{
-            padding:40% 0  0% 0;/*最後のセクションだけ止まらないため、エリア内の情報が少ない時は、HEADER分の高さをpadding-topに追加して上部が見えるようにする*/
+            padding:40% 0  10% 0;/*最後のセクションだけ止まらないため、エリア内の情報が少ない時は、HEADER分の高さをpadding-topに追加して上部が見えるようにする*/
         }
     }
 

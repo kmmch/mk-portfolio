@@ -293,7 +293,7 @@ p {
   align-items: center;
 }
 .section.fixed:last-of-type {
-  padding: 40% 0 0% 0; /*最後のセクションだけ止まらないため、エリア内の情報が少ない時は、HEADER分の高さをpadding-topに追加して上部が見えるようにする*/
+  padding: 40% 0 10% 0; /*最後のセクションだけ止まらないため、エリア内の情報が少ない時は、HEADER分の高さをpadding-topに追加して上部が見えるようにする*/
 }
 .section .profile__wrapper {
   display: flex;

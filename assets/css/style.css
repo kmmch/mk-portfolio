@@ -68,6 +68,14 @@ p {
   transform: rotateX(0deg); /* X軸に0度回転 */
 }
 
+.sns a {
+  display: block;
+}
+.sns img {
+  width: 30px;
+  height: 30px;
+}
+
 /*== アニメーション共通設定 */
 /* 滑らかに変形して出現 */
 .smooth {
@@ -232,101 +240,162 @@ p {
 
 /*========= End ヘッダー ===============*/
 /*========= Start メインビジュアル ===============*/
-.main-visual {
+#mv {
+  top: 0;
+  z-index: 1;
+  height: 100vh;
+  width: 100%;
+  max-width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+#mv #particle {
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 100%;
   height: 100vh;
+  vertical-align: bottom;
+  z-index: 2;
 }
-
-.particle__wrapper {
-  width: 90%;
-  max-width: 900px;
-  height: 90%;
-  max-height: 500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.particle__wrapper #particle {
+#mv #wave {
+  position: absolute;
+  left: 0;
   width: 100%;
-  height: 50vh;
-  vertical-align: bottom; /*canvasタグ下に余白が生まれるのを防ぐ*/
+  z-index: 1;
 }
 
+/*=== 9-1-4 矢印が動いてスクロールを促す  ====*/
+/*スクロールダウン全体の場所*/
+.scrolldown {
+  /*描画位置※位置は適宜調整してください*/
+  position: absolute;
+  bottom: 1%;
+  right: 50%;
+  /*矢印の動き1秒かけて永遠にループ*/
+  animation: arrowmove 1s ease-in-out infinite;
+  /*Scrollテキストの描写*/
+  /* 矢印の描写 */
+}
+.scrolldown span {
+  /*描画位置*/
+  position: absolute;
+  left: -20px;
+  bottom: 50px;
+  /*テキストの形状*/
+  color: #333;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  /*縦書き設定*/
+  writing-mode: vertical-rl;
+}
+.scrolldown:before {
+  content: "";
+  /*描画位置*/
+  position: absolute;
+  bottom: 40px;
+  right: -6px;
+  /*矢印の形状*/
+  width: 1px;
+  height: 20px;
+  background: #333;
+  transform: skewX(-31deg);
+}
+.scrolldown:after {
+  content: "";
+  /*描画位置*/
+  position: absolute;
+  bottom: 40px;
+  right: 0;
+  /*矢印の形状*/
+  width: 1px;
+  height: 50px;
+  background: #333;
+}
+
+/*下からの距離が変化して全体が下→上→下に動く*/
+@keyframes arrowmove {
+  0% {
+    bottom: 1%;
+  }
+  50% {
+    bottom: 3%;
+  }
+  100% {
+    bottom: 1%;
+  }
+}
 /*========= End メインビジュアル ===============*/
 /*========= Start メインコンテンツ ===============*/
-.section {
-  background: #fff;
+main section {
   /*== 紙芝居風レイアウト */
+  /*== About */
   /*== プロフィール */
   /*== 実績 */
 }
-.section__wrapper {
-  max-width: 1000px;
+main section.fixed { /*Safari*/
+  position: sticky;
+  top: 70px; /*Header高さ分で止まるようにする*/
+  /*装飾のためのCSS*/
+  background: #fff;
+  padding: 170px 30px;
+  min-height: 100vh;
 }
-.section__ttl {
-  margin-bottom: 20px;
+main section.fixed:last-of-type {
+  padding-top: 260px; /*最後のセクションだけ止まらないため、エリア内の情報が少ない時は、HEADER分の高さをpadding-topに追加して上部が見えるようにする*/
+}
+main section .section__wrapper {
+  max-width: 1000px;
+  width: 90%;
+  margin: 0 auto;
+}
+main section .section__ttl {
+  margin-bottom: 40px;
   text-align: center;
   text-transform: uppercase;
   font-size: 3rem;
   letter-spacing: 0.3rem;
   font-family: "Teko", sans-serif;
 }
-.section__description {
+main section .section__description {
   text-align: center;
-  margin-bottom: 20px;
-}
-.section__btn {
-  text-align: center;
-}
-.section .txt__wrapper {
-  text-align: center;
-}
-.section .link__sns {
-  margin-right: 10px;
-}
-.section .link__sns img {
-  width: 30px;
-  height: 30px;
-}
-.section.fixed { /*Safari*/
-  position: sticky;
-  top: 0px; /*Header高さ分で止まるようにする*/
-  /*装飾のためのCSS*/
-  padding: 0 0 45% 0;
-  height: 170vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.section.fixed:last-of-type {
-  padding: 40% 0 10% 0; /*最後のセクションだけ止まらないため、エリア内の情報が少ない時は、HEADER分の高さをpadding-topに追加して上部が見えるようにする*/
-}
-.section .profile__wrapper {
-  display: flex;
   margin-bottom: 40px;
 }
-.section .profile__body {
+main section .section__body {
+  margin-bottom: 40px;
+}
+main section .section__btn {
+  text-align: center;
+}
+main section#profile .profile__wrapper {
+  display: flex;
+  justify-content: center;
+}
+main section#profile .profile__body {
   margin-left: 30px;
 }
-.section .profile__body__txt {
+main section#profile .profile__body__txt {
   margin-bottom: 20px;
 }
-.section .profile__body__sns {
+main section#profile .profile__body__sns {
   display: flex;
 }
-.section .works__wrapper ul {
+main section#works .works__description {
+  text-align: center;
+}
+main section#works ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.section .works__wrapper ul li {
+main section#works ul li {
   width: 31%;
 }
-.section .works__wrapper ul li img {
+main section#works ul li img {
   width: 100%;
 }
 
@@ -334,6 +403,7 @@ p {
 /*========= Start フッター ===============*/
 .footer p {
   text-align: center;
+  font-weight: bold;
 }
 
 /*========= End フッター ===============*/
@@ -351,44 +421,52 @@ p {
     padding: 5px 20px;
   }
   /*========= Start メインコンテンツ ===============*/
-  .section {
+  main section {
+    /*== 紙芝居風レイアウト */
     /*== プロフィール */
     /*== 実績 */
   }
-  .section.fixed {
+  main section.fixed, main section.fixed:last-of-type {
     position: relative !important; /*sticky解除*/
     top: 0; /*70px⇒0pxに戻す*/
     min-height: auto;
-    padding: 30px;
   }
-  .section.fixed:last-of-type {
-    position: relative !important; /*sticky解除*/
-    top: 0; /*70px⇒0pxに戻す*/
-    min-height: auto;
-    padding: 30px;
+  main section .section__wrapper {
+    max-width: 700px;
   }
-  .section.fixed:first-of-type {
-    padding: 100px 30px 30px 30px; /*最初の要素は上部にHeaderの高さ以上の余白をとる*/
+  main section .section__ttl {
+    margin-bottom: 20px;
   }
-  .section.fixed:nth-of-type(2n) {
-    padding: 100px 30px;
+  main section .section__description {
+    margin-bottom: 20px;
   }
-  .section .profile__wrapper {
+  main section .section__body {
+    margin-bottom: 20px;
+  }
+  main section#profile .profile__wrapper {
     display: block;
   }
-  .section .profile__img {
+  main section#profile .profile__img {
     text-align: center;
     margin-bottom: 20px;
   }
-  .section .profile__body__sns {
+  main section#profile .profile__body {
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+  main section#profile .profile__body__txt {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  main section#profile .profile__body__sns {
     justify-content: center;
   }
-  .section .works__wrapper ul {
+  main section#works ul {
     display: block;
   }
-  .section .works__wrapper ul li {
+  main section#works ul li {
     width: 90%;
-    margin: 10px auto;
+    margin: 20px auto;
   }
-  /*========= Start メインコンテンツ ===============*/
+  /*========= End メインコンテンツ ===============*/
 }/*# sourceMappingURL=style.css.map */

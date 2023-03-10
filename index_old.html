@@ -10,6 +10,7 @@
     <!--==============レイアウトを制御する独自のCSSを読み込み===============-->
     <link rel="stylesheet" href="./assets/css/vendor/destyle.css">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/css/modaal.min.css">
 </head>
 <body>
     <!-- Start ローディング -->
@@ -45,86 +46,80 @@
     <!-- End ヘッダー -->
 
     <!-- Start メインビジュアル -->
-    <section id="mv">
-        <canvas id="particle"></canvas>
-        <canvas id="wave"></canvas>
-        <div class="scrolldown"><span>Scroll</span></div>
+    <section class="main-visual">
+        <div class="particle__wrapper">
+            <canvas id="particle"></canvas>
+        </div>
     </section>
     <!-- End メインビジュアル -->
 
     <main id="container">
-        <section id="about" class="fixed">
+        <section id="about" class="section fixed">
             <div class="section__wrapper">
                 <h2 class="section__ttl smoothTrigger">ABOUT</h2>
-                <div class="section__description">
+                <div class="txt__wrapper">
                     <p class="smoothTrigger">ようこそ、けんもちまさやのポートフォリオサイトへ！</p>
                     <p class="smoothTrigger">プロフィールや過去の実績をまとめています。</p>
                     <p class="smoothTrigger">ポートフォリオを通じてぜひ私のことを知ってください。</p>
-                </div>
-                <div class="section__body">
-                </div>
+                </div>    
             </div>
         </section>
-        <section id="profile" class="fixed">
+        <section id="profile" class="section fixed">
             <div class="section__wrapper">
                 <h2 class="section__ttl smoothTrigger">PROFILE</h2>
-                <div class="section__body">
-                    <div class="profile__wrapper">
-                        <figure class="profile__img smoothTrigger">
-                            <img src="./assets/images/profile.png" alt="Profile Image" width=200>
-                        </figure>
-                        <div class="profile__body">
-                            <div class="profile__body__txt smoothTrigger">
-                                <p>
-                                    都内在住のWebエンジニア。<br>
-                                    学生時代に自然言語処理を学び、卒業後はIT企業（SIer）でWeb開発に従事。<br>
-                                    設計や開発だけでなく要件定義や運用等プロジェクトマネジメントも経験。<br>
-                                    得意領域はCMSを使ったWebサイト構築とデータ収集・解析。
-                                </p>
+                <div class="profile__wrapper">
+                    <figure class="profile__img smoothTrigger">
+                        <img src="./assets/images/profile.png" alt="Profile Image" width=200>
+                    </figure>
+                    <div class="profile__body">
+                        <div class="profile__body__txt smoothTrigger">
+                            <p>
+                                都内在住のWebエンジニア。<br>
+                                学生時代に自然言語処理を学び、卒業後はIT企業（SIer）でWeb開発に従事。<br>
+                                設計や開発だけでなく要件定義や運用等プロジェクトマネジメントも経験。<br>
+                                得意領域はCMSを使ったWebサイト構築とデータ収集・解析。
+                            </p>
+                        </div>
+                        <div class="profile__body__sns">
+                            <div class="link__sns twitter">
+                                <a target="_blank" href="https://twitter.com/masayakemmochi">
+                                    <img class="smoothTrigger" src="./assets/images/icon/Logo blue.svg" alt="Twitter">
+                                </a>
                             </div>
-                            <div class="profile__body__sns">
-                                <div class="sns twitter">
-                                    <a  class="smoothTrigger" target="_blank" href="https://twitter.com/masayakemmochi">
-                                        <img src="./assets/images/icon/Logo blue.svg" alt="Twitter">
-                                    </a>
-                                </div>
-                                <div class="sns github">
-                                    <a  class="smoothTrigger" target="_blank" href="https://github.com/kmmch">
-                                        <img src="./assets/images/icon/github-mark.svg" alt="GitHub">
-                                    </a>
-                                </div>
+                            <div class="link__sns github">
+                                <a target="_blank" href="https://github.com/kmmch">
+                                    <img class="smoothTrigger" src="./assets/images/icon/github-mark-white.svg" alt="GitHub">
+                                </a>
                             </div>
-                        </div>    
+                        </div>
                     </div>
-                </div>
+                </div> 
                 <div class="section__btn smoothTrigger">
                     <a target="_blank" href="https://www.resume.id/kemmochi_" class="btn rotatefront"><span>プロフィール</span><span>Go to the Page!</span></a>
                 </div>
             </div>
         </section>
-        <section id="works" class="fixed">
+        <section id="works" class="section fixed">
             <div class="section__wrapper">
-                <h2 class="section__ttl smoothTrigger">WORKS</h2>
-                <div class="section__description smoothTrigger">これまでの実績をご紹介します。</div>
-                <div class="section__body">
+                <h2 class="section__ttl smoothTrigger">WORKS</h2>    
+                <p class="section__description  smoothTrigger">これまでに手がけてきた実績をご紹介します。</p>
+                <div class="works__wrapper smoothTrigger">
                     <ul>
                         <li class="zoomIn smoothTrigger"><a target="_blank" href="https://www.resume.id/works/a00f05541a378317"><span class="mask"><img src="./assets/images/works/mktravel.jpeg" alt="MK Travel"></span></a></li>
                         <li class="zoomIn smoothTrigger"><a target="_blank" href="https://www.resume.id/works/ba68e65c8d5b0423"><span class="mask"><img src="./assets/images/works/clinic.jpeg" alt="Ishii Clinic"></span></a></li>
                         <li class="zoomIn smoothTrigger"><a target="_blank" href="https://www.resume.id/works/36383472ec552e38"><span class="mask"><img src="./assets/images/works/mkcoding.png" alt="MK Coding"></span></a></li>
                     </ul>
-                </div>    
+                </div>
             </div>
         </section>
-      </main>
-
-    <!-- Start フッター -->
+    </main>
     <footer class="footer">
         <p>COPYRIGHT © 2023 Masaya Kemmochi ALL RIGHTS RESERVED.</p>
     </footer>
-    <!-- End フッター -->
     <script src="./assets/js/vendor/jquery-3.6.3.min.js"></script>
     <script src="./assets/js/vendor/particleText.js"></script>
     <script src="./assets/js/vendor/stickyfill.min.js"></script>
+    <script src="./assets/js/vendor/progressbar.min.js"></script>
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/module/waveCanvas.js"></script>
 </body>

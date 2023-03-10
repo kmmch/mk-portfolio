@@ -82,6 +82,16 @@ p {
     }
 }
 
+.sns {
+    & a {
+        display: block;
+    }
+    & img {
+        width:30px;
+        height:30px;
+    }
+}
+
 
 /*== アニメーション共通設定 */
 /* 滑らかに変形して出現 */
@@ -273,114 +283,179 @@ p {
 
 
 /*========= Start メインビジュアル ===============*/
-.main-visual {
-    // 描画されるテキストを中央寄せにする
-    display:flex;
+#mv {
+    top: 0;
+    z-index: 1;
+    height: 100vh;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
     justify-content: center;
     align-items: center;
-    width:100%;
-    height: 100vh;
-    // background:hsl(0, 0%, 20%);
-}
+    overflow: hidden;
+    position: relative;
 
-.particle {
-    &__wrapper {
-        width: 90%;
-        max-width:900px;
-        height: 90%;
-        max-height:500px;
-        // background:hsl(0, 0%, 20%);
+    & #particle {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        vertical-align: bottom;
+        z-index: 2;
+    }
 
-        display:flex;
-        justify-content: center;
-        align-items: center;
-        
-        & #particle{
-            width:100%;
-            height: 50vh;
-            vertical-align: bottom;/*canvasタグ下に余白が生まれるのを防ぐ*/
-        }
+    & #wave {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        z-index: 1;
     }
 }
+
+/*=== 9-1-4 矢印が動いてスクロールを促す  ====*/
+/*スクロールダウン全体の場所*/
+.scrolldown {
+    /*描画位置※位置は適宜調整してください*/
+	position:absolute;
+	bottom:1%;
+	right:50%;
+    /*矢印の動き1秒かけて永遠にループ*/
+	animation: arrowmove 1s ease-in-out infinite;
+
+    /*Scrollテキストの描写*/
+    & span{
+        /*描画位置*/
+        position: absolute;
+        left:-20px;
+        bottom:50px;
+        /*テキストの形状*/
+        color: #333;
+        font-size: 0.7rem;
+        letter-spacing: 0.05em;
+        /*縦書き設定*/
+        -ms-writing-mode: tb-rl;
+        -webkit-writing-mode: vertical-rl;
+        writing-mode: vertical-rl;
+    }
+
+    /* 矢印の描写 */
+    &:before {
+        content: "";
+        /*描画位置*/
+        position: absolute;
+        bottom: 40px;
+        right: -6px;
+        /*矢印の形状*/
+        width: 1px;
+        height: 20px;
+        background: #333;
+        transform: skewX(-31deg);
+    }
+    &:after{
+        content:"";
+        /*描画位置*/
+        position: absolute;
+        bottom:40px;
+        right:0;
+        /*矢印の形状*/
+        width:1px;
+        height: 50px;
+        background:#333;
+    }
+}
+
+/*下からの距離が変化して全体が下→上→下に動く*/
+@keyframes arrowmove{
+      0%{bottom:1%;}
+      50%{bottom:3%;}
+     100%{bottom:1%;}
+ }
+
 /*========= End メインビジュアル ===============*/
 
 
 
 /*========= Start メインコンテンツ ===============*/
-.section {
-    background: #fff;
-
-    //*== セクション内共通パーツ */
-    &__wrapper {
-        max-width: 1000px;
-    }
-    &__ttl {
-        margin-bottom:20px;
-        text-align: center;
-        text-transform: uppercase;
-        font-size: 3rem;
-        letter-spacing: 0.3rem;
-        font-family: 'Teko', sans-serif;
-    }
-    &__description {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-    &__btn {
-        text-align: center;
-    }
-
-    & .txt__wrapper {
-        text-align: center;
-    }
-
-    & .link__sns {
-        margin-right: 10px;
-        & img {
-            width:30px;
-            height:30px;
-        }
-    }
-
-    /*== 紙芝居風レイアウト */
-    &.fixed{
-        position: -webkit-sticky;/*Safari*/
-        position: sticky;
-        top:0px;/*Header高さ分で止まるようにする*/
-        /*装飾のためのCSS*/
-        padding: 0 0 45% 0;
-        height: 170vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        &:last-of-type{
-            padding:40% 0  10% 0;/*最後のセクションだけ止まらないため、エリア内の情報が少ない時は、HEADER分の高さをpadding-topに追加して上部が見えるようにする*/
-        }
-    }
-
-    /*== プロフィール */
-    & .profile {
-        &__wrapper {
-            display: flex;
-            margin-bottom:40px;
-        }
-
-        &__body {
-            margin-left: 30px;
-            &__txt {
-                margin-bottom:20px;
-            }
-
-            &__sns {
-                display: flex;
+main {
+    & section {
+        /*== 紙芝居風レイアウト */
+        &.fixed {
+            // border: 20px solid #000;
+            position: -webkit-sticky;/*Safari*/
+            position: sticky;
+            top:70px;/*Header高さ分で止まるようにする*/
+            /*装飾のためのCSS*/
+            background:#fff;
+            padding:170px 30px;
+            min-height: 100vh;
+    
+            &:last-of-type{
+                padding-top: 260px;/*最後のセクションだけ止まらないため、エリア内の情報が少ない時は、HEADER分の高さをpadding-topに追加して上部が見えるようにする*/
             }
         }
-    }
 
-    /*== 実績 */
-    & .works {
-        &__wrapper {
+        & .section {
+            //*== セクション内共通パーツ */
+            &__wrapper {
+                max-width: 1000px;
+                width: 90%;
+                margin: 0 auto;
+                // border: 10px solid #000;
+            }
+            &__ttl {
+                margin-bottom:40px;
+                text-align: center;
+                text-transform: uppercase;
+                font-size: 3rem;
+                letter-spacing: 0.3rem;
+                font-family: 'Teko', sans-serif;        
+            }
+            &__description {
+                text-align: center;
+                margin-bottom: 40px;
+            }
+            &__body {
+                margin-bottom: 40px;
+            }
+            &__btn {
+                text-align: center;
+            }
+        }
+
+        /*== About */
+        &#about {
+        }
+
+        /*== プロフィール */
+        &#profile {
+            & .profile {
+                &__wrapper {
+                    display: flex;
+                    justify-content: center;
+
+                }
+                &__body {
+                    margin-left: 30px;
+
+                    &__txt {
+                        margin-bottom: 20px;
+                    }
+                    &__sns {
+                        display: flex;
+                    }
+                }        
+            }
+        }
+
+        /*== 実績 */
+        &#works {
+            & .works {
+                &__description {
+                    text-align: center;
+                }    
+            }
+
             & ul {
                 display: flex;
                 align-items: center;
@@ -397,6 +472,8 @@ p {
             }    
         }
     }
+
+
 }
 /*========= End メインコンテンツ ===============*/
 
@@ -407,6 +484,7 @@ p {
 
     & p {
         text-align: center;
+        font-weight: bold;
     }
 }
 /*========= End フッター ===============*/
@@ -433,61 +511,73 @@ p {
     
     
     /*========= Start メインコンテンツ ===============*/
-    .section {
-
-        &.fixed {
-            position:relative!important;/*sticky解除*/
-            top:0;/*70px⇒0pxに戻す*/
-            min-height: auto;
-            padding:30px;
-        
-            &:last-of-type{
+    main {
+        & section {
+            /*== 紙芝居風レイアウト */
+            &.fixed,
+            &.fixed:last-of-type{
                 position:relative!important;/*sticky解除*/
                 top:0;/*70px⇒0pxに戻す*/
                 min-height: auto;
-                padding:30px;
+                // padding:30px;
             }
-        
-            &:first-of-type{
-                padding:100px 30px 30px 30px;/*最初の要素は上部にHeaderの高さ以上の余白をとる*/
+            &.fixed:first-of-type{
+                // padding:100px 30px 30px 30px;/*最初の要素は上部にHeaderの高さ以上の余白をとる*/
             }
-        
-            &:nth-of-type(2n){
-                padding:100px 30px;
-            }    
-        }
-
-        /*== プロフィール */
-        & .profile {
-            &__wrapper {
-                display: block;
-            }
-
-            &__img {
-                text-align: center;
-                margin-bottom: 20px;
-            }
-
-            &__body {
-                &__sns {
-                    justify-content: center;
+            
+            & .section {
+                //*== セクション内共通パーツ */
+                &__wrapper {
+                    max-width: 700px;
+                }
+                &__ttl {
+                    margin-bottom:20px;
+                }
+                &__description {
+                    margin-bottom: 20px;
+                }
+                &__body {
+                    margin-bottom: 20px;
                 }
             }
-        }
-        /*== 実績 */
-        & .works {
-            &__wrapper {
+
+            /*== プロフィール */
+            &#profile {
+                & .profile {
+                    &__wrapper {
+                        display: block;
+                    }
+
+                    &__img {
+                        text-align: center;
+                        margin-bottom: 20px;
+                    }
+                    &__body {
+                        margin-left: 0;
+                        margin-bottom: 20px;
+
+                        &__txt {
+                            margin-bottom: 20px;
+                            text-align: center;
+                        }
+                        &__sns {
+                            justify-content: center;
+                        }
+                    }
+                }
+            }
+            /*== 実績 */
+            &#works {
                 & ul {
                     display: block;
 
                     & li {
                         width: 90%;
-                        margin: 10px auto;
+                        margin: 20px auto;
                     }
-                }
+                }    
             }
         }
     }
-    /*========= Start メインコンテンツ ===============*/
-
+    /*========= End メインコンテンツ ===============*/
 }

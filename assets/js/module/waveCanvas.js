@@ -12,7 +12,7 @@ var unit = 100,
 function init() {
     info.seconds = 0;
     info.t = 0;
-		canvasList = [];
+	canvasList = [];
     colorList = [];
     // canvas1個めの色指定
     canvasList.push(document.getElementById("wave"));
@@ -20,13 +20,13 @@ function init() {
     
 		// 各キャンバスの初期化
 		for(var canvasIndex in canvasList) {
-        var canvas = canvasList[canvasIndex];
-        canvas.width = document.documentElement.clientWidth; //Canvasのwidthをウィンドウの幅に合わせる
-        canvas.height = 200;//波の高さ
-        canvas.contextCache = canvas.getContext("2d");
+            var canvas = canvasList[canvasIndex];
+            canvas.width = document.documentElement.clientWidth; //Canvasのwidthをウィンドウの幅に合わせる
+            canvas.height = 200;//波の高さ
+            canvas.contextCache = canvas.getContext("2d");
     }
     // 共通の更新処理呼び出し
-		update();
+	update();
 }
 
 function update() {
@@ -100,4 +100,5 @@ function drawSine(canvas, t, zoom, delay) {
     }
 }
 
-init();
+// init();
+window.setTimeout(init(),1000);

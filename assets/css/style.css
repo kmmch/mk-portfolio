@@ -476,6 +476,9 @@ main section#works ul li img {
     padding: 5px 20px;
   }
   /*========= Start メインビジュアル ===============*/
+  #mv .mv__ttl p span {
+    font-size: 3rem;
+  }
   /*========= End メインビジュアル ===============*/
   /*========= Start メインコンテンツ ===============*/
   main section {

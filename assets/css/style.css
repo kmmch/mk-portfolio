@@ -112,15 +112,67 @@ p {
   overflow: hidden; /*拡大してはみ出る要素を隠す*/
 }
 
-/* Loading背景画面設定　*/
-#splash {
-  /*fixedで全面に固定*/
-  position: fixed;
-  z-index: 9999;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  color: #333;
+/*========= 流れるテキスト ===============*/
+/*全共通*/
+.slide-in {
+  overflow: hidden;
+}
+.slide-in_inner {
+  display: inline-block;
+}
+
+/*左右のアニメーション*/
+.rightAnime {
+  opacity: 0; /*事前に透過0にして消しておく*/
+}
+
+.leftAnime {
+  opacity: 0; /*事前に透過0にして消しておく*/
+}
+
+.slideAnimeRightLeft {
+  animation-name: slideTextX-100;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.slideAnimeLeftRight {
+  animation-name: slideTextX100;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes slideTextX100 {
+  from {
+    transform: translateX(-100%); /*要素を左の枠外に移動*/
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0); /*要素を元の位置に移動*/
+    opacity: 1;
+  }
+}
+@keyframes slideTextX-100 {
+  from {
+    transform: translateX(100%); /*要素を右の枠外に移動*/
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0); /*要素を元の位置に移動*/
+    opacity: 1;
+  }
+}
+/*アニメーション遅延秒数指定*/
+.animateDelay125 {
+  animation-delay: 1.25s;
+}
+.animateDelay150 {
+  animation-delay: 1.5s;
+}
+.animateDelay175 {
+  animation-delay: 1.75s;
 }
 
 /*========= End 共通パーツ ===============*/
@@ -263,22 +315,12 @@ p {
   overflow: hidden;
   position: relative;
 }
-#mv .particle__wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+#mv .mv__ttl {
+  text-align: center;
 }
-#mv .particle__wrapper #particle {
-  position: absolute;
-  height: 50%;
-  vertical-align: bottom;
-  z-index: 2;
-}
-#mv #wave {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  z-index: 1;
+#mv .mv__ttl p span {
+  font-size: 5rem;
+  font-family: "Teko", sans-serif;
 }
 
 /*=== 9-1-4 矢印が動いてスクロールを促す  ====*/
@@ -434,12 +476,6 @@ main section#works ul li img {
     padding: 5px 20px;
   }
   /*========= Start メインビジュアル ===============*/
-  #mv .particle__wrapper {
-    max-width: 600px;
-  }
-  #mv .particle__wrapper #particle {
-    width: 90%;
-  }
   /*========= End メインビジュアル ===============*/
   /*========= Start メインコンテンツ ===============*/
   main section {

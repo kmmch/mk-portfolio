@@ -295,14 +295,17 @@ p {
     overflow: hidden;
     position: relative;
 
-    & #particle {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100vh;
-        vertical-align: bottom;
-        z-index: 2;
+    & .particle__wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & #particle {
+            position: absolute;
+            height: 50%;
+            vertical-align: bottom;
+            z-index: 2;
+        }
     }
 
     & #wave {
@@ -510,6 +513,19 @@ main {
     }
     
     
+    /*========= Start メインビジュアル ===============*/
+    #mv {
+        & .particle__wrapper {
+            max-width: 600px;
+            
+            & #particle {
+                width:90%;
+            }
+        }
+    }
+    /*========= End メインビジュアル ===============*/
+
+
     /*========= Start メインコンテンツ ===============*/
     main {
         & section {
